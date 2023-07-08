@@ -94,3 +94,13 @@ export const rateHistPlaceById = async (id, rating) => {
 
 	return histPlace
 }
+
+export const findHistoricalPlaceByQrCode = async qrCode => {
+	try {
+		const histPlace = await HistPlace.findOneAndUpdate({ qrCode })
+		return histPlace
+	} catch (error) {
+		console.error(error)
+		return null
+	}
+}

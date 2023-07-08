@@ -1,10 +1,11 @@
 import {
-	postHistPlace,
 	getHistPlace,
 	getHistPlaces,
-	removeHistPlace,
+	getQrCode,
 	getRateHistPlace,
+	postHistPlace,
 	postRateHistPlace,
+	removeHistPlace,
 } from '../../controllers/histPlace.controller.js'
 
 export default async function (fastify, opts) {
@@ -21,4 +22,7 @@ export default async function (fastify, opts) {
 	fastify.get('/:id/rating', getRateHistPlace)
 
 	fastify.post('/:id/rating', postRateHistPlace)
+
+	// qrCode
+	fastify.get('/historical-places/:qrCode', getQrCode)
 }

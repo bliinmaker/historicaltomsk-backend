@@ -59,11 +59,22 @@ export const getRateHistPlace = async (req, reply) => {
 
 export const postRateHistPlace = async (req, reply) => {
 	try {
-		const histPlace = HistPlaceService.rateHistPlaceById(req.params.id, req.body.rating)
+		const histPlace = HistPlaceService.rateHistPlaceById(
+			req.params.id,
+			req.body.rating
+		)
 
 		return histPlace
 	} catch (error) {
 		console.error(error)
 		return reply.code(500).send({ status: 500, message: error.message })
 	}
+}
+
+export const getQrCode = (req, res) => {
+	const qrCode = req.params.qrCode
+	// Здесь вы можете выполнить логику для поиска исторического места на основе qrCode
+	// Затем верните информацию об историческом месте в формате JSON
+	const histPlace = findHistoricalPlaceByQrCode(qrCode)
+	res.json(histPlace)
 }
