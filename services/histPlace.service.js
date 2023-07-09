@@ -40,12 +40,14 @@ export const createHistPlace = async ({
 	area,
 	description,
 	image,
+	qrCode,
 }) => {
 	const histPlace = await HistPlace.create({
 		title,
 		area,
 		description,
 		image,
+		qrCode,
 	})
 
 	return histPlace
