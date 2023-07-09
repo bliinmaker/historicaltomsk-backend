@@ -10,7 +10,7 @@
   "scripts": {
     "test": "tap \"test/**/*.test.js\"",
     "start": "fastify start -l info app.js",
-    "dev": "fastify start -w -l info -P app.js"
+    "dev": "fastify start --watch --ignore-watch='uploads' -l info --verbose-watch -P app.js"
   },
   "keywords": [],
   "author": "",

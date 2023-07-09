@@ -5,11 +5,7 @@ import { v4 as uuidv4 } from 'uuid'
 const uploadFileTypes = ['jpg', 'png', 'jpeg']
 const uploadFilePath = './uploads/images'
 
-
-// npm i @fastify/static
-
 export const createUploadImage = async imageData => {
-	// const fileName
 	const extension = imageData.filename.split('.').pop()
 	if (!uploadFileTypes.includes(extension)) {
 		throw new Error(
@@ -24,12 +20,8 @@ export const createUploadImage = async imageData => {
 	const fileName = uuidv4() + '-' + imageData.filename
 	const uploadedFilePath = uploadFilePath + '/' + fileName
 
-	// testFile.nametest.jpg
-	// 'jpg' = ['testFile', 'nametest', 'jpg'].pop()
-
 	const storedFile = fs.createWriteStream(uploadedFilePath)
 
-	// await pipeline(imageData.file, storedFile) и вместо этой строчки написать вот как внизу
 	await pipeline(imageData.toBuffer(), storedFile)
 
 	return fileName

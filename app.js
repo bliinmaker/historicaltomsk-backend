@@ -92,7 +92,7 @@ export default async function (fastify, opts) {
 		methods: ['GET', 'POST', 'PUT', 'PATCH'],
 	})
 
-	fastify.register(multipart)
+	fastify.register(multipart, {attachFieldsToBody: true})
 	// await runAdminJs(fastify)  
 
 	fastify.register(fastifyStatic, {
