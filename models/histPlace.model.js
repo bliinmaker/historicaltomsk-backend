@@ -17,10 +17,6 @@ const histPlaceSchema = new mongoose.Schema(
 			type: String,
 			required: [true, 'Image is required field'],
 		},
-		qrCode: {
-			type: String,
-			required: [true, 'qrCode is required field'],
-		},
 		comments: [
 			{
 				type: mongoose.Schema.Types.ObjectId,
